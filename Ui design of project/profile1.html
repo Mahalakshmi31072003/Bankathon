@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page</title>
+    <style>
+ .navbar {
+
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar a {
+margin:20px;
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+.navbar a:hover {
+margin:20px;
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      background-color: #ddd;
+      color: black;
+    }
+
+
+        body {
+            background-attachment: fixed; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('dr.jpg'); /* Replace 'your_background_image.jpg' with your image path */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Adding transparency to the background color */
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .profile-details {
+            padding: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: darkblue;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease; /* Adding transition effect */
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:disabled {
+            background-color: #ddd;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+<a href="logout.html">Logout</a>
+    <a href="about.html">About</a>
+     <a href="homeup.html">Home</a>
+     
+    
+    </div>
+
+    <div class="container">
+        <h1>Profile Page</h1>
+        <div class="profile-details">
+            <label for="name">Name:</label>
+            <input type="text" id="name" disabled>
+            <label for="email">Email:</label>
+            <input type="email" id="email" disabled>
+            <label for="bio">Bio:</label>
+            <textarea id="bio" rows="4" disabled></textarea>
+            <label for="phoneno">Phone Number:</label>
+            <input type="tel" id="phoneno" disabled>
+<br>
+<br>
+         <label>Gender:</lable>
+        <label>
+            <input type="radio" name="gender" value="male"> Male
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="female"> Female
+        </label><br>
+        <label>
+            <input type="radio" name="gender" value="other"> Other
+        </label><br>
+         
+          <button id="save-btn" style="display: none;">Save</button></center>
+<div class="hr-photo">
+           
+            <p>Profile Photo</p>
+            <input type="file" id="edit-photo-input" accept="image/*" onchange="previewImage(event)">
+<br>
+            <p>Resume</p>
+             <input type="file" id="resumeFile" name="resumeFile" accept=".pdf,.doc,.docx,.jpeg,.jpg" required><br>
+       <center> <button id="edit-btn">Edit</button></center>
+        </div>
+        </div>
+    </div>
+
+    <!-- Your HTML code remains the same -->
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"; 
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+    const firebaseConfig = {
+  apiKey: "AIzaSyDWQESzxxMUiFdBKqa0SkbaZW02A0bnHfE",
+  authDomain: "saibaba-ce422.firebaseapp.com",
+  databaseURL: "https://saibaba-ce422-default-rtdb.firebaseio.com",
+  projectId: "saibaba-ce422",
+  storageBucket: "saibaba-ce422.appspot.com",
+  messagingSenderId: "15932103426",
+  appId: "1:15932103426:web:86c3d450596e16daea001b",
+  measurementId: "G-2JX2SB69ED"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const database = getDatabase(app);
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const nameInput = document.getElementById("name");
+        const emailInput = document.getElementById("email");
+        const bioInput = document.getElementById("bio");
+        const phoneInput = document.getElementById("phoneno");
+        const genderInputs = document.querySelectorAll('input[name="gender"]');
+        const editBtn = document.getElementById("edit-btn");
+        const saveBtn = document.getElementById("save-btn");
+
+        // Function to enable editing of profile details
+        function enableEditing() {
+            nameInput.removeAttribute("disabled");
+            emailInput.removeAttribute("disabled");
+            bioInput.removeAttribute("disabled");
+            phoneInput.removeAttribute("disabled");
+            genderInputs.forEach(input => input.removeAttribute("disabled"));
+            editBtn.style.display = "none";
+            saveBtn.style.display = "block";
+        }
+
+        // Function to save edited profile details
+        function saveDetails() {
+            nameInput.setAttribute("disabled", true);
+            emailInput.setAttribute("disabled", true);
+            bioInput.setAttribute("disabled", true);
+            phoneInput.setAttribute("disabled", true);
+            genderInputs.forEach(input => input.setAttribute("disabled", true));
+            editBtn.style.display = "block";
+            saveBtn.style.display = "none";
+
+            // Getting selected gender value
+            let selectedGender;
+            genderInputs.forEach(input => {
+                if (input.checked) {
+                    selectedGender = input.value;
+                }
+            });
+
+            const userDetails = {
+                name: nameInput.value,
+                email: emailInput.value,
+                bio: bioInput.value,
+                phoneNumber: phoneInput.value,
+                gender: selectedGender
+            };
+
+            // Saving user details to the Firebase Realtime Database
+            const userId = // Get the user's unique ID here, maybe from Firebase Authentication
+            set(ref(database, 'users/' + userId), userDetails)
+                .then(() => {
+                      alert('Profile details saved successfully');
+                })
+                .catch((error) => {
+                    alert(error.message);
+                });
+        }
+
+        // Event listeners for buttons
+        editBtn.addEventListener("click", enableEditing);
+        saveBtn.addEventListener("click", saveDetails);
+    });
+</script>
+
+</body>
+</html>

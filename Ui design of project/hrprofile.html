@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Personal Information</title>
+  <style>
+ body {
+background-attachment: fixed;
+font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+padding-bottom:30px;
+      color:white;
+      background-image: url('m8.jpg'); /* Replace 'background.jpg' with your background image URL */
+      background-size: cover;
+      background-position: center;
+     
+      
+ }
+#editButton {
+      display: block;
+      margin: 10px auto;
+      background-color: #005c8a;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+.navbar {
+  background-color: #333;
+  overflow: hidden;
+}
+
+.navbar a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+ h1 {
+      color: #005c8a;
+      text-align: center;
+    }
+
+    h2 {
+      color: #005c8a;
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-right: 40px;
+      background-color: rgba(255, 255, 255, 0.7); /* Transparent white background */
+      border: 1px solid #ddd;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      color: #333;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.7);
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="file"] {
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      //background-color: #007bff;
+      background-color: #005c8a;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      //background-color: #0056b3;
+      background-color: #003b55;
+    }
+
+    /* Additional styling for educational qualification section */
+    .qualification-section {
+      border-top: 1px solid #ddd;
+      padding-top: 20px;
+      margin-top: 20px;
+    }
+
+    /* Additional styling for the educational qualification labels and inputs */
+    .qualification-section label,
+    .qualification-section input[type="text"] {
+      display: inline-block;
+      width: 30%;
+      margin-right: 2%;
+      vertical-align: top;
+    }
+
+    /* Clear floating elements in qualification section */
+    .qualification-section:after {
+      content: "";
+      display: table;
+      clear: both;
+    }
+ header {
+      background-color: #007bff;
+      text-align: center;
+      padding: 2rem 0;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+<div class="navbar">
+    <a href="logout.html">Logout</a>
+   <a href="announcement.html">Announcement</a>
+   <a href="jobdescriptionedit.html">Job Description</a>
+    <a href="cv ranking.html">CV Ranking</a>
+    <a href="homeup.html">Home</a>
+    
+    
+  </div>
+ 
+ <center><h1>HR Profile</h1></center>
+  <form action="/action_page.php">
+    <label for="hrname">HR Name:</label>
+    <input type="text" id="hrname" name="hrname">
+
+    <label for="cname">Company Name:</label>
+    <input type="text" id="cname" name="cname">
+
+    <label for="bname">Branch Name:</label>
+    <input type="text" id="bname" name="bname">
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email">
+
+    <label for="pno">Phone no.:</label>
+    <input type="text" id="pno" name="pno">
+
+    <label for="linkedin">Linkedin:</label>
+    <input type="text" id="Linkedin" name="Linkedin">    
+      <br>
+     <h2><center><b><label for="photo">Select a photo:</label><b></center></h2>     
+     <input type="file" id="photo" name="photo" accept=".jpg, .jpeg, .png, .gif, .bmp" required>
+     <!-- Accepts .jpg, .jpeg, .png, .gif, .bmp file formats -->
+     <br>
+
+<button id="editButton" onclick="toggleEditing()">Edit</button>
+ 
+    </form> 
+ </form>
+<script>
+ function toggleEditing() {
+      // Get the elements to be edited
+      const elementsToEdit = document.querySelectorAll('input[contenteditable="false"]');
+      const editButton = document.getElementById('editButton');
+
+      // Toggle the contenteditable attribute for each element
+      elementsToEdit.forEach((element) => {
+        element.contentEditable = element.contentEditable === "false" ? "true" : "false";
+      });
+
+      // Update the button text based on the editing state
+      editButton.textContent = elementsToEdit[0].contentEditable === "false" ? "Edit" : "Save";
+    }
+</script>
+</body>
+</html>

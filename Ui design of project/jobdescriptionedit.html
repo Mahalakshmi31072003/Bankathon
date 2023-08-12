@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Job Description filling Form</title>
+  <style>
+  
+
+    body {
+      background-image:url("m5.jpg");
+      background-attachment: fixed; 
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 100px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    h2 {
+      color: #005c8a;
+      text-align: center;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      padding-right: 40px;
+      background-color: rgba(255, 255, 255, 0.7); /* Partially transparent background */
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      background-color: rgba(255, 255, 255, 0.7); /* Partially transparent input fields */
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    input[type="submit"] {
+      background-color: #005c8a;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #003b55;
+    }
+  </style>
+</head>
+<body>
+  <h2>Job Description</h2>
+  <form>
+    <label for="fname">Company Name:</label>
+    <input type="text" id="fname" name="fname" required>
+
+    <label for="location">Location:</label>
+    <input type="text" id="location" name="location" required>
+
+    <label for="position">Position:</label>
+    <input type="text" id="position" name="position" required>
+
+    <label for="salary">Salary:</label>
+    <input type="text" id="salary" name="salary" required>
+
+    <label for="jtype">Job Type:</label>
+    <input type="text" id="jtype" name="jtype" required>
+
+    <label for="description">Job Description:</label>
+    <textarea id="description" name="description" rows="8" cols="40" required></textarea>
+
+    
+
+    <br>
+    <input type="submit" value="Submit">
+    <input type="submit" value="update">
+  </form>
+  
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <style>
+    body {
+background-image: url('m3.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+      padding-right:20px;
+      background-color: rgba(242, 242, 242, 0.7);
+    }
+
+    nav {
+      background-color: #333;
+      padding: 1rem;
+padding-right:20px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    nav ul li {
+      margin: 0 1rem;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      background-color: #0056b3;
+    }
+
+    .container {
+
+      /* Rest of your container styles */
+      background-color: rgba(255, 255, 255, 0.9); /* Container with partial transparency */
+      
+      max-width: 500px; /* Adjust the width as needed */
+      margin: 50px auto;
+      padding: 50px;
+    
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .container h2 {
+      text-align: center;
+      color: #005c8a;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+      padding-right: 20px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #005c8a;
+      color: #fff;
+      border: none;
+      padding: 10px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .form-group input[type="submit"]:hover {
+      background-color: #003b55;
+    }
+
+  </style>
+</head>
+<body>
+  
+     <div class="container"   padding-right= "20px";>
+    <h2>Sign Up</h2>
+    <form>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+
+      <div class="form-group">
+        <input type="button" value="SignUp" name="submit" id="submit"   onClick="auth2()">
+        <br>
+        
+      </div>
+    </form>
+    <p>Already have an account? <a href="login1.html">Try to login</a></p>
+  </div>
+</body>
+</html>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js"; 
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js";
+
+  const firebaseConfig = {
+  apiKey: "AIzaSyAO3mY5E6r2ZJk-aFkU_ECWFE_jfVOmLvE",
+  authDomain: "registration-c049a.firebaseapp.com",
+  projectId: "registration-c049a",
+  storageBucket: "registration-c049a.appspot.com",
+  messagingSenderId: "334768066439",
+  appId: "1:334768066439:web:222bd0aed1fa4b6649cd22",
+  measurementId: "G-RRGXSYNJWH"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth();
+    const database = getDatabase(app);
+
+    document.getElementById('submit').addEventListener('click', (e) => {
+        e.preventDefault();
+	
+
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                const user = userCredential.user;
+
+                // Store additional user data (excluding password) in the database
+                set(ref(database, 'users/'+ user.uid), {
+                    email: email
+                })
+                .then(() => {
+                    alert('user created successfully');
+
+                    window.location.assign("plain.html");
+
+                })
+                .catch((error) => {
+                    alert(error.message);
+
+                });
+            })
+            .catch((error) => {
+                alert(error.message);
+            });
+    });
+</script>

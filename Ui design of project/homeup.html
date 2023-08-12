@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home Page</title>
+  <style>
+@keyframes moveRightToLeft {
+  from {
+    left:100%;
+  }
+  to {
+    left:0;
+  }
+}
+
+footer {
+  position: relative; /* Set the footer as the relative positioning context */
+}
+
+#contact-us {
+background-color: rgba(0, 0, 0, 0.5);
+  border: 20px solid white;
+  position: absolute;
+  right: 0; /* Initially position the div at the right edge of the footer */
+  animation: moveRightToLeft 20s linear infinite; /* Use the animation for infinite loop */
+}
+    body {
+  background-attachment: fixed; 
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      background-image: url('m3.jpg');
+      
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .navbar {
+
+      background-color: #333;
+      overflow: hidden;
+    }
+
+    .navbar a {
+margin:20px;
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+margin:20px;
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      background-color: #ddd;
+      color: black;
+    }
+
+    .welcome-message {
+margin:20px;
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .welcome-message h1 {
+
+      font-size: 36px;
+    }
+
+    .welcome-message p {
+      font-size: 18px;
+    }
+
+    .section-with-bg {
+margin:20px;
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      padding: 50px 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 20px solid white;
+    }
+
+    .section-with-bg h2 {
+      color: #fff;
+    }
+
+    .cta-button {
+margin:20px;
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      background-color: #555;
+    }
+
+    .how-it-works-item {
+      margin-top: 20px;
+    }
+
+    .how-it-works-item h3 {
+      color: #fff;
+    }
+
+    .how-it-works-item ol {
+      list-style: decimal;
+      margin-left: 20px;
+      color: #fff;
+    }
+
+    .how-it-works-item ol li {
+      margin-bottom: 5px;
+    }
+
+    .testimonials-block {
+      margin-top: 20px;
+    }
+
+    .testimonials-block blockquote {
+padding-right:20px;
+padding-left:20px;
+padding-bottom:20px;
+      background-color: #333;
+      padding: 10px;
+      border-left: 5px solid #fff;
+    }
+
+    .testimonials-block blockquote p {
+      color: #fff;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+     <a href="logout.html">Logout</a>
+    <a href="profile1.html">Profile</a>
+    <a href="login1.html">Login as applicant</a>
+    <a href="hrlogin.html">Login as HR</a>
+    <a href="sign up.html">Signup</a>
+    <a href="about.html">About</a>
+   
+    
+    
+  </div>
+
+  <header>
+    <center><b><h1 class="welcome-message">Job Alert - Your Gateway to Employment Opportunities</h1></b></center>
+  </header>
+
+  <main>
+    <div class="section-with-bg" id="welcome">
+      <center><b><h2>Welcome to Job Alert!</h2></b></center>
+      <p>Are you looking for your dream job? Welcome to Job Alert, where we connect talented individuals with exciting
+        employment opportunities. Companies can post their job descriptions, and job seekers can easily apply to them.
+        Whether you are an employer or a job seeker, we have got you covered.</p>
+    </div>
+
+    <div class="section-with-bg" id="featured-jobs">
+      <center><b><h2>Our Services:</h2></center></b>
+      <ul>
+        <li>
+          <h3>Job Description Evaluation:</h3>
+          <p>We analyze job descriptions and provide insightful recommendations for enhancements, helping companies attract top talent.</p>
+        </li>
+
+        <li>
+          <h3>CV Ranking:</h3>
+          <p>We rank CVs based on their alignment with job requirements, shortlisting candidates with the most potential.</p>
+        </li>
+
+        <li>
+          <h3>Email Notifications:</h3>
+          <p>We notify shortlisted candidates about the next steps in the hiring process through prompt email communication.</p>
+        </li>
+
+        <li>
+          <h3>Screening Questions:</h3>
+          <p>We develop tailored screening questions, enabling in-depth candidate evaluation.</p>
+        </li>
+
+        <li>
+          <h3>First-Round Interviews:</h3>
+          <p>Our platform facilitates the first-round of interviews, recorded for later review.</p>
+        </li>
+
+        <li>
+          <h3>Continuous Communication:</h3>
+          <p>We maintain a strong channel of communication with HR teams, providing regular updates on the hiring process.</p>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section-with-bg" id="how-it-works">
+      <center><b><h2>How It Works</h2></center></b>
+      <div class="how-it-works-item">
+        <h3>For Companies</h3>
+        <ol>
+          <li>Create an Account: Sign up and create your company profile.</li>
+          <li>Post Job Descriptions: Easily post detailed job descriptions for the positions you want to fill.</li>
+          <li>Find Top Talent: Access a pool of qualified candidates and find the perfect fit for your organization.</li>
+        </ol>
+      </div>
+      <div class="how-it-works-item">
+        <h3>For Job Seekers</h3>
+        <ol>
+          <li>Create Your Profile: Sign up and build your professional profile to showcase your skills.</li>
+          <li>Browse Jobs: Explore a wide range of job opportunities from various industries.</li>
+          <li>Apply with Ease: Submit your applications with just a few clicks.</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="section-with-bg" id="why-choose-us">
+      <center><b><h2>Why Choose Job Alert?</h2></center></b>
+      <ul>
+        <li>Efficiency: Streamlined job search and hiring process, saving you time and effort.</li>
+        <li>Diversity: Access a diverse range of job opportunities and candidates.</li>
+        <li>User-Friendly: Our platform is easy to navigate, ensuring a smooth experience for all users.</li>
+      </ul>
+    </div>
+
+    <div class="section-with-bg testimonials-block" id="testimonials">
+      <center><b><h2>Testimonials</h2></center></b>
+      <blockquote>
+        <p>"Thanks to Job Alert, I found my dream job within a week! Highly recommended!" - John D.</p>
+      </blockquote>
+      <blockquote>
+        <p>"Job Alert made hiring so much simpler. We found the perfect candidate for our team." - Jane S.</p>
+      </blockquote>
+    </div>
+
+    <div class="section-with-bg" id="join-now">
+      <center><b><h2>Join Job Alert Today!</h2></center></b>
+      <p>Take the next step in your career journey. Whether you're looking for the right talent or searching for exciting
+        job opportunities, Job Alert has you covered. Join our growing community of job seekers and employers today!</p>
+      <center><b><a href="sign in.html" class="cta-button">Sign Up Now</a></center></b>
+    </div>
+
+  </main>
+
+    <div class="section-with-bg" id="contact-us">
+<footer>
+      <center><b><h2>Contact Us</h2></center></b>
+      <p>If you have any questions or need assistance, please feel free to reach out to our support team at:</p>
+      <p>Email: jobalert@gmail.com</p>
+      <p>Phone no.: 7462947567</p>
+      <p>Address: 123, ABC Street, XYZ Nagar, Chennai - 600001, Tamil Nadu, India.</p>
+    
+</footer>
+</div>
+  <script src="script.js"></script>
+</body>
+
+</html>
