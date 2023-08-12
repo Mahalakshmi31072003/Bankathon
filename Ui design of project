@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome Page</title>
+  <style>
+ 
+    body {
+      
+      background-attachment: fixed;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: white;
+      background-image: url('m1.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .navbar {
+      background-color: #333;
+      overflow: hidden;
+      width: 100%; /* Adjusted width */
+    }
+
+    .navbar a {
+      margin: 20px;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      float: right;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .navbar a:hover {
+      background-color: #ddd;
+      color: black;
+    }
+
+    .welcome-message {
+      text-align: center;
+      color: whitesmoke;
+      padding: 50px 20px;
+    }
+
+    .welcome-message h1 {
+      font-size: 80px;
+    }
+
+    .welcome-message p {
+      font-size: 30px;
+    }
+
+    .section-with-bg {
+      margin: 20px;
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      padding: 50px 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 20px solid white;
+    }
+
+    .section-with-bg h2 {
+      color: #fff;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      background-color: #555;
+    }
+
+    .how-it-works-item {
+      margin-top: 20px;
+    }
+
+    .how-it-works-item h3 {
+      color: #fff;
+    }
+
+    .how-it-works-item ol {
+      list-style: decimal;
+      margin-left: 20px;
+      color: #fff;
+    }
+
+    .how-it-works-item ol li {
+      margin-bottom: 5px;
+    }
+
+    .testimonials-block {
+      margin-top: 20px;
+    }
+
+    .testimonials-block blockquote {
+      padding-right: 20px;
+      padding-left: 20px;
+      padding-bottom: 20px;
+      background-color: #333;
+      padding: 10px;
+      border-left: 5px solid #fff;
+    }
+
+    .testimonials-block blockquote p {
+      color: #fff;
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="navbar">
+    
+    <a href="profile1.html">Profile</a>
+    <a href="login1.html">Login as applicant</a>
+    <a href="hrlogin.html">Login as HR</a>
+    <a href="sign up.html">Signup</a>
+    <a class="active" href="homeup.html">Home</a>
+  </div>
+
+  <div class="welcome-message">
+    <h1>Welcome to Our Website</h1>
+    <p>Hello User, thank you for visiting our website!</p>
+  </div>
+</body>
+
+</html>
